@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Wisata Terdekat Jambi</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Pencarian Daftar Wisata Terdekat di Jambi</h1>
+    <form id="coordinate-form" aria-label="Form pencarian koordinat lokasi">
+      <label for="latitude">
+        Latitude
+        <input
+          type="number"
+          id="latitude"
+          name="latitude"
+          step="0.000001"
+          min="-90"
+          max="90"
+          required
+          placeholder="e.g. -1.610000"
+          aria-describedby="lat-desc"
+        />
+        <small id="lat-desc" style="color: #ccc; font-size: 0.75rem"
+          >Koordinat lintang (-90 sampai 90)</small
+        >
+      </label>
+      <label for="longitude">
+        Longitude
+        <input
+          type="number"
+          id="longitude"
+          name="longitude"
+          step="0.000001"
+          min="-180"
+          max="180"
+          required
+          placeholder="e.g. 103.620000"
+          aria-describedby="lon-desc"
+        />
+        <small id="lon-desc" style="color: #ccc; font-size: 0.75rem"
+          >Koordinat bujur (-180 sampai 180)</small
+        >
+      </label>
+      <button type="submit" aria-label="Cari wisata terdekat">
+        Cari Wisata
+      </button>
+    </form>
+
+    <main>
+      <section
+        class="results"
+        aria-live="polite"
+        aria-relevant="additions"
+        aria-atomic="true"
+        tabindex="0"
+      >
+        <h2>Hasil Pencarian</h2>
+        <ul id="results-list" class="result-list" role="list">
+          <!-- Results here -->
+        </ul>
+      </section>
+      <section
+        class="graph"
+        aria-label="Visualisasi grafik koordinat wisata terdekat"
+      >
+        <h2>Grafik Lokasi Wisata (Cartesius)</h2>
+        <canvas
+          id="location-graph"
+          aria-describedby="graph-desc"
+          role="img"
+        ></canvas>
+        <div id="graph-desc" class="sr-only">
+          Grafik titik lokasi wisata dan lokasi Anda sebagai pusat
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
